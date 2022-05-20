@@ -1,0 +1,47 @@
+<!-- <div class="container">
+    <h1 class="header">Hi there be like heralal does matters</h1>
+    <hr>
+</div>
+<div class="container">
+
+    <p class="para">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem ullam repudiandae dolor veritatis eius
+        aperiam praesentium qui voluptas! Sequi est ullam, tempore quis earum ad maiores vitae tempora amet recusandae?
+    </p>
+
+</div> -->
+
+<p [ngStyle]="{backgroundColor:getColor()}"
+
+    [ngClass]="{online : status === 'online'}"
+
+
+>Server ID:{{id}} <br>
+    status :{{status}}
+
+</p>
+<label>Enter Server Name</label>
+
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<br><br>
+<!-- {{serverName}} -->
+<br><br>
+<p *ngIf="serverCreated else noServer"> {{serverCreation}}</p>
+<ng-template #noServer>
+    <p>no server is created</p>
+</ng-template>
+<button class="btn btn-primary" [disabled]="!allowServer" (click)="onServerCreation()">add server</button>
+
+<p *ngFor="let v of servers">{{v}}</p>
+
+<button class="btn btn-primary" (click)="clearText()">clearText</button>
+<!-- <p [innerText]="allowServer"></p> -->
+<!-- <p [innerText]="serverCreation"></p> -->
+
+<br><br>
+
+<label>Enter User Name</label>
+<input type="text" class="form-control" [(ngModel)]="userName">
+{{userName}}
+<br><br>
+<button class="btn btn-primary" [disabled]=" userName==='' " (click)="updateUserButton()">updateUser</button>
